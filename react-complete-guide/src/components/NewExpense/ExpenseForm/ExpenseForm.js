@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = ({ onSaveNewExpense }) => {
+const ExpenseForm = ({ onAddExpense }) => {
   const [userInput, setUserInput] = useState({
     title: "",
     amount: "",
@@ -30,13 +31,12 @@ const ExpenseForm = ({ onSaveNewExpense }) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    const expenseData = {
+    onAddExpense({
+      id: uuidv4(),
       title: userInput.title,
       amount: parseFloat(userInput.amount),
       date: new Date(userInput.date),
-    };
-
-    onSaveNewExpense(expenseData);
+    });
 
     setUserInput({
       title: "",
