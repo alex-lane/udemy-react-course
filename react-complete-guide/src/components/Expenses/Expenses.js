@@ -9,10 +9,12 @@ const Expenses = ({ expenses }) => {
   const [year, setYear] = useState("2020");
 
   const onFilterYearChangeHandler = (selectedYear) => {
-    console.log("In Expenses.js selected: " + selectedYear);
     setYear(selectedYear);
-    console.log("In Expenses.js state: " + year);
   };
+
+  const filteredExpensesByYear = expenses.filter((expense) => {
+    return expense.date.getFullYear().toString() === year;
+  });
 
   return (
     <Card className="expenses">
@@ -20,7 +22,7 @@ const Expenses = ({ expenses }) => {
         selectedYear={year}
         onYearChange={onFilterYearChangeHandler}
       />
-      {expenses.map((expense) => (
+      {filteredExpensesByYear.map((expense) => (
         <ExpenseItem
           key={expense.id}
           title={expense.title}
