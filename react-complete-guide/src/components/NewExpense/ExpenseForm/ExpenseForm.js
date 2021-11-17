@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = ({ onAddExpense }) => {
+const ExpenseForm = ({ onAddExpense, stopEditingHandler }) => {
   const [userInput, setUserInput] = useState({
     title: "",
     amount: "",
@@ -43,6 +43,8 @@ const ExpenseForm = ({ onAddExpense }) => {
       amount: "",
       date: "",
     });
+
+    stopEditingHandler();
   };
 
   return (
@@ -78,6 +80,9 @@ const ExpenseForm = ({ onAddExpense }) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={stopEditingHandler}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
