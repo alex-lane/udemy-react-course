@@ -8,7 +8,7 @@ const UserList = ({ users, onDeleteUser }) => {
         <User
           key={user.id}
           id={user.id}
-          name={user.name}
+          username={user.username}
           age={user.age}
           onDeleteUser={onDeleteUser}
         />
