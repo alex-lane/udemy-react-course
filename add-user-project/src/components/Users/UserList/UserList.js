@@ -1,5 +1,5 @@
 import User from "./User/User";
-import Card from "../../Card/Card";
+import Card from "../../UI/Card/Card";
 
 const UserList = ({ users }) => {
   return (
