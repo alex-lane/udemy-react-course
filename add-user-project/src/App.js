@@ -23,12 +23,12 @@ function App() {
   };
 
   return (
-    <div>
+    <>
       <AddUser onAddUser={addUserHandler} />
       {users.length > 0 && (
         <UserList users={users} onDeleteUser={deleteUserHandler} />
       )}
-    </div>
+    </>
   );
 }
 
